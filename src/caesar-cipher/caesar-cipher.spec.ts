@@ -13,11 +13,11 @@ describe("caesar-cipher.ts", () => {
       expect(encrypt("hello", 0)).toBe("hello");
     });
 
-    it.only("should encrypt uppercase letters", () => {
+    it("should encrypt uppercase letters", () => {
       expect(encrypt("BraZil", 5)).toBe("Gwf_nq");
     });
 
-    it("should encrypt uppercase letters", () => {
+    it("should encrypt spaces", () => {
       expect(encrypt("Banana is Delicious", 5)).toBe("Gfsfsf%nx%Ijqnhntzx");
     });
   });

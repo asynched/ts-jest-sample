@@ -32,20 +32,27 @@ const ALPHABET = [
 ];
 
 export function encrypt(originalMessage: string, shiftRange: number): string {
-  return originalMessage
-    .split("")
-    .map((letter) => {
-      const isUpperCase = letter.toUpperCase() === letter;
-      const position = ALPHABET.indexOf(letter.toLowerCase());
+  return (
+    originalMessage
+      .split("")
+      // .map((letter) => {
+      //   const isUpperCase = letter.toUpperCase() === letter;
+      //   const position = ALPHABET.indexOf(letter.toLowerCase());
 
-      if (position > -1) {
-        const shiftedLetter = ALPHABET[position + shiftRange];
-        if (isUpperCase) {
-          return shiftedLetter;
-        }
-        return shiftedLetter;
-      }
-      return letter;
-    })
-    .join("");
+      //   if (position > -1) {
+      //     const x = position + shiftRange
+      //     if (x > ALPHABET.length) {
+
+      //     }
+      //     const shiftedLetter = ALPHABET[position + shiftRange];
+      //     if (isUpperCase) {
+      //       return shiftedLetter.toUpperCase();
+      //     }
+      //     return shiftedLetter;
+      //   }
+      //   return letter;
+      // })
+      .map((letter) => String.fromCharCode(letter.charCodeAt(0) + shiftRange))
+      .join("")
+  );
 }
